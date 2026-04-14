@@ -34,7 +34,10 @@ public class App {
 			System.out.println(endingPosXY[0] + ", " + endingPosXY[1]);
 
 			gm.runGame(startingPosXY, endingPosXY);
-
+			
+			
+			System.out.print("Do you want save, load, or exit: ");
+			String command = myScanner.next();
 			System.out.print("Do you want to keep playing or exit? ");
 			String userEnd = myScanner.next();
 			if(userEnd.equals("exit")){
@@ -43,13 +46,15 @@ public class App {
 				stopGame = true;
 				System.exit(1);
 			}
-			//Board board, int start, int end, int newRow, int newCol, int oldRow, int oldCol
-			//~ if(canMove(boardData) == true){
-				//~ movePiece(startingPosition[0], startingPosition[1], endingPosition[0], endingPosition[1]);
-			//~ }
-			else{
-				gm.runGame();
+			if(command.equals("save")){
+				gm.saveGame("chess.txt");
+				continue;
 			}
+			if(command.equals("load")){
+				gm.loadGame("chess.txt");
+				continue;
+			}
+			
 		}
 		
 	}
