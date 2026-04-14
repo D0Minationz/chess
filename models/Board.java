@@ -73,5 +73,20 @@ public class Board {
         //boardData[fromX][fromY] = new EmptyPiece(false);
         boardData[fromX][fromY] = null;
     }
+    
+    public String[][] toStringBoard(){
+		String[][] data = new String[8][8];
+		for(int i = 0; i < 8; i++){
+			for(int j = 0; j < 8; j++){
+				Piece p = boardData[i][j];
+				if(p == null){
+					data[i][j] = "--";
+				}else{
+					data[i][j] = p.toString(); // make sure each piece has this
+				}
+			}
+		}
+		return data;
+	}
 
 }
